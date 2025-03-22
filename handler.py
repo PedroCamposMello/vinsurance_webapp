@@ -2,7 +2,7 @@ import os
 import pickle
 import pandas as pd
 from flask             import Flask, request, Response
-from apps.web_app.custom_packs.v_insurance      import V_insurance
+from web_app.custom_packs.v_insurance      import V_insurance
 
 # loading model
 model = pickle.load( open( 'exports/cicle_products/model_xgb.pkl', 'rb') )
