@@ -15,7 +15,7 @@ class V_insurance( object ):
     def data_cleaning( self, df_01 ):
         cols_old = ['id', 'Gender', 'Age', 'Driving_License', 'Region_Code',
                     'Previously_Insured', 'Vehicle_Age', 'Vehicle_Damage', 'Annual_Premium',
-                    'Policy_Sales_Channel', 'Vintage', 'Response']
+                    'Policy_Sales_Channel', 'Vintage']
 
         snakecase = lambda x: inflection.underscore( x )
 
@@ -34,8 +34,7 @@ class V_insurance( object ):
                     'previously_insured',
                     'vehicle_age',
                     'vehicle_damage',
-                    'policy_sales_channel',
-                    'response'
+                    'policy_sales_channel'
                     ]
 
         df_01[col_select] = df_01[col_select].astype(str)
@@ -51,9 +50,6 @@ class V_insurance( object ):
 
         # vintage
         df_05['vintage'] = self.tranf_vintage.transform(df_05[['vintage']].values)
-
-        # response - Já está no formato de Label Encoding
-        df_05['response'] = df_05['response'].astype(int)
 
         # id - Já está no formato de Label Encoding
         df_05['id'] = df_05['id'].astype(int)
